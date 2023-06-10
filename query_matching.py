@@ -17,7 +17,8 @@ def get_related_docs_and_score(sorted_indices,data,cosine_similarities):
     for doc_index in sorted_indices:
         doc_id = data[int(doc_index)].doc_id
         relevance_score = cosine_similarities[doc_index]
-        
+        if relevance_score==0.0:
+            break
         related_docs_and_score[doc_id] = relevance_score
     return related_docs_and_score
     
